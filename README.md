@@ -2,8 +2,7 @@
 
 ## Description
 This calculator allows users to compare the yearly cost of smoking cigarettes to the cost of using vapes. By inputting their daily cigarette consumption and choosing their preferred cigarette brand, users can see the total yearly cost of their smoking habit. The calculator also provides the equivalent yearly cost if they were to switch to 2ml or 18ml vapes, based on the number of puffs.
-
-[Try it live here!](https://smokeshopstock.com/cigarettes-vs-disposable-vapes-cost-calculator/) 
+Try It Live Here:[Disposable Vape Saving Calculator](https://smokeshopstock.com/cigarettes-vs-disposable-vapes-cost-calculator/) 
 ![Disposable Vape Calculator](https://smokeshopstock.com/wp-content/uploads/2023/09/Cigarette-s-vs-Disposable-Vape-s-Cost-Calculator-Online-Smoke-Shop-Stock.png)
 
 ## Features

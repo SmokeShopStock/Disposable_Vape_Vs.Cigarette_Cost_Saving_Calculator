@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Saving Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cost Saving Calculator</h2>
+        <label for="cigsPerDay">Number of cigarettes per day:</label>
+        <input type="number" id="cigsPerDay">
+        <br><br>
+        <label for="brand">Choose your cigarette brand:</label>
+        <select id="brand">
+            <option value="american spirit">American Spirit - $11</option>
+            <option value="marlboro">Marlboro - $8</option>
+            <option value="camel">Camel - $9</option>
+            <option value="newport">Newport - $10</option>
+            <option value="affordable brand">Affordable Brand - $5</option>
+        </select>
+        <br><br>
+        <button onclick="calculate()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const cigaretteBrands = {
+            "american spirit": 11,
+            "marlboro": 8,
+            "camel": 9,
+            "newport": 10,
+            "affordable brand": 5
+        };
+
+        const vapeCosts = {
+            "2ml": 4,
+            "18ml": 21.99
+        };
+
+        const puffsPerCig = 11;
+        const puffsPer2ml = 700;
+        const puffsPer18ml = 9000;
+
+        function calculate() {
+            const cigsPerDay = document.getElementById('cigsPerDay').value;
+            const brand = document.getElementById('brand').value;
+
+            const totalPuffsPerYear = cigsPerDay * puffsPerCig * 365;
+            const yearlyCigCost = cigsPerDay * 365 * (cigaretteBrands[brand] / 20);
+            
+            const num2mlVapes = totalPuffsPerYear / puffsPer2ml;
+            const num18mlVapes = totalPuffsPerYear / puffsPer18ml;
+
+            const yearly2mlVapeCost = num2mlVapes * vapeCosts["2ml"];
+            const yearly18mlVapeCost = num18mlVapes * vapeCosts["18ml"];
+
+            const savings2ml = yearlyCigCost - yearly2mlVapeCost;
+            const savings18ml = yearlyCigCost - yearly18mlVapeCost;
+
+            document.getElementById('result').innerHTML = `
+                Average puffs per day: ${cigsPerDay * puffsPerCig}<br>
+                Total puffs in a year: ${totalPuffsPerYear}<br><br>
+                Yearly cost of smoking ${brand} cigarettes: $${yearlyCigCost.toFixed(2)}<br>
+                Yearly cost using 2ml vapes: $${yearly2mlVapeCost.toFixed(2)} (Savings: $${savings2ml.toFixed(2)})<br>
+                Yearly cost using 18ml vapes: $${yearly18mlVapeCost.toFixed(2)} (Savings: $${savings18ml.toFixed(2)})
+            `;
+        }
+    </script>
+</body>
+</html>
